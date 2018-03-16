@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import com.trulia.pages.HomePage;
 
-public class testAhmed {
+public class TestAhmed {
 	HomePage homePage = new HomePage();
 	
 	@Test

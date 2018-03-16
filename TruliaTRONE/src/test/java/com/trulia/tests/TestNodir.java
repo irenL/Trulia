@@ -1,5 +1,5 @@
 package com.trulia.tests;
 
-public class testNodir {
+public class TestNodir {
 
 }

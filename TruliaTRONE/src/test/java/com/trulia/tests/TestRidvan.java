@@ -1,5 +1,5 @@
 package com.trulia.tests;
 
-public class testIryna {
+public class TestRidvan {
 
 }
