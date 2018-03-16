@@ -15,7 +15,7 @@ public class TestBase {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.get(ConfigurationReader.getProperty("url"));
 	}
-	@AfterClass
+	//@AfterClass
 	public void tearDown() {
 		Driver.closeDriver();
 	}
