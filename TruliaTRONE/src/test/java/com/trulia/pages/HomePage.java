@@ -34,6 +34,5 @@ public class HomePage {
 	
 	@FindBy(xpath="//section[@data-reactid='81']//a[text()='Open Houses']")
 	public WebElement AHMmenuOpenHousesLink;
-	
 
 }

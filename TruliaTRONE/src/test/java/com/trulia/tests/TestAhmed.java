@@ -39,7 +39,7 @@ public class TestAhmed extends TestBase{
 		searchResultPage.AHMsearchBar.clear();
 		searchResultPage.AHMsearchBar.sendKeys("Pittsburgh, PA"+Keys.ENTER);
 		assertTrue(searchResultPage.AHMh1.getText().contains("Open Houses in Pittsburgh, PA"));
-		//step6 Studio+ 1+ 2+ 3+ 4+
+		//step6
 		searchResultPage.AHMallBedsBtn.click();
 		String actual="";
 		String expected="Studio+ 1+ 2+ 3+ 4+";
