@@ -34,5 +34,20 @@ public class HomePage {
 	
 	@FindBy(xpath="//section[@data-reactid='81']//a[text()='Open Houses']")
 	public WebElement AHMmenuOpenHousesLink;
+	
+	@FindBy(xpath="//a[@data-reactid='203']")
+	public WebElement AHMmenuLocalScoopLink;
+	
+	@FindBy(xpath="//section[@data-reactid='201']//a")
+	public List<WebElement> AHMmenuLocalScoopList;
+	
+	@FindBy(xpath="//section[@data-reactid='201']//a[text()='Schools']")
+	public WebElement AHMmenuShoolsLink;
+	
+	@FindBy(xpath="//section[@data-reactid='201']//a[text()='Market Trends']")
+	public WebElement AHMmenuMarketTrendsLink;
+	
+	@FindBy(xpath="//*[@data-reactid='67']")
+	public WebElement AHMlogoSVG;
 
 }
