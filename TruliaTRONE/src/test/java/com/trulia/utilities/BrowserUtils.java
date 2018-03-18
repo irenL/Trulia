@@ -95,5 +95,20 @@ public class BrowserUtils {
 		}
 		return elemTexts;
 	}
+	
+	public static boolean getCurrentUrl(String expected, String actual) {
+		boolean result = false;
+		if (expected.equals(actual)) {
+			System.out.println("Pass");
+			return true;
+		} else {
+			System.out.println("Fail");
+			System.out.println("Expected: " + expected);
+			System.out.println("Actual: " + actual);
+			result = false;
+		}
+		return result;
+	}
+	
 
 }
