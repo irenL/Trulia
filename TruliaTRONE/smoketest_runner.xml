@@ -2,8 +2,8 @@
 
 <suite name="Automated test" verbose="2">
 		<test name="smokeTest">
-			<packages>
-				<package name="com.trulia.tests.SmokeTest"></package>
-			</packages>
+			<classes>
+			<class name="com.trulia.tests.SmokeTest"></class>
+		</classes>
 		</test>
 </suite>
