@@ -34,4 +34,7 @@ public class SearchResultPage {
 	
 	@FindBy(xpath="//div[@id='bedroomsButtonGroup']//button[.='4+']")
 	public WebElement AHMallBedsOption4PLUS;
+	
+	@FindBy(xpath="//div[@id='bedroomsButtonGroup']//button[.='1+']")
+	public WebElement AHMallBedsOption1PLUS;
 }

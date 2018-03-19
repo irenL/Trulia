@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 
 public class TestBase {
 	protected WebDriver driver;
@@ -13,9 +14,12 @@ public class TestBase {
 	public void setUp() {
 		driver=Driver.getDriver();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		driver.get(ConfigurationReader.getProperty("url"));
 	}
-	//@AfterClass
+    @BeforeMethod
+    public void beforeMethod() {
+    	driver.get(ConfigurationReader.getProperty("url"));
+    }
+	@AfterClass
 	public void tearDown() {
 		Driver.closeDriver();
 	}
