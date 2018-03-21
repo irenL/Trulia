@@ -3,8 +3,10 @@ package com.trulia.tests;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -94,12 +96,102 @@ public class TestIlyas extends TestBase{
 	searchResultPage.AHMsearchBtn.click();
 	BrowserUtils.waitFor(2);
 	searchResultPage.AHMsearchBtn.click();
-	System.out.println(driver.getTitle());
-	assertTrue(driver.getTitle().contains("Windermere, FL New Homes For Sale"));
-		
+		assertTrue(driver.getTitle().contains("Windermere, FL New Homes For Sale"));
+	//Step5
+	searchResultPage.AHMallBedsBtn.click();
+	String actual3 = "";
+	String expected3 = "Studio+ 1+ 2+ 3+ 4+";
+	for (WebElement f : searchResultPage.AHMallBedsOptions) {
+		actual3 += f.getText() + " ";
+	}
+	
+	assertEquals(actual3.trim(), expected3);
+	//step6
+	searchResultPage.AHMallBedsOption4PLUS.click();
+	BrowserUtils.waitFor(3);
+	assertEquals(searchResultPage.AHMh1.getText(), "Windermere, FL 4 Bedroom Homes For Sale");
+	
+	}
+	
+	@Test
+	public void TC009() {
+	// step1
+	driver.manage().window().maximize();
+	assertTrue(homePage.isAtURL());
+	assertTrue(homePage.isAtTitle());
+	//step2
+	homePage.searchFieldIL.clear();
+	BrowserUtils.waitFor(2);
+	homePage.searchFieldIL.sendKeys("Pittsburg,PA");
+	BrowserUtils.waitFor(2);
+	System.out.println(homePage.searchFieldIL.getAttribute("value"));
+	assertTrue(homePage.searchFieldIL.getAttribute("value").equals("Pittsburg,PA"));
+	homePage.searchButtonIL.click();
+	BrowserUtils.waitFor(2);
+	
+	//step3
+	Actions actions = new Actions(driver);
+	BrowserUtils.waitFor(2);
+	actions.moveToElement(searchResultPage.buyLink).perform();
+	BrowserUtils.waitFor(2);
+	String actual4 = "";
+	String expected4 = "Open Houses";
+	for (WebElement g : homePage.AHMmenuBuyList) {
+		actual4 += g.getText() + " ";
+	}
+	System.out.println(actual4);
+	assertTrue(actual4.trim().contains(expected4));
+	//step4
+	homePage.AHMmenuOpenHousesLink.click();
+	BrowserUtils.waitFor(3);
+	assertTrue(driver.getTitle().contains("Pittsburgh, PA Open Houses"));
+	assertTrue(homePage.priceToggle.isDisplayed());
+	//step5
+	homePage.priceToggle.click();
+	BrowserUtils.waitFor(3);
+	WebElement minPriceDropDown=driver.findElement(By.id("minPrice"));
+	Select list=new Select(minPriceDropDown);	
+	assertTrue(minPriceDropDown.isEnabled());
+	WebElement maxPriceDropDown=driver.findElement(By.id("maxPrice"));
+	Select list2=new Select(maxPriceDropDown);
+	assertTrue(maxPriceDropDown.isEnabled());
+	//step6
+	homePage.minPriceLink.click();
+	BrowserUtils.waitFor(2);
+	list.selectByVisibleText("$50k");
+	BrowserUtils.waitFor(3);
+	homePage.maxPriceLink.click();
+	BrowserUtils.waitFor(2);
+	list2.selectByVisibleText("$250k");
+	BrowserUtils.waitFor(3);
+	
+	BrowserUtils.waitFor(3);
+	
+	String firstValue=searchResultPage.firstResultPriceValue.getText();
+	String lastValue=searchResultPage.lastResultPriceValue.getText();
+	
+	
+	assertTrue(Integer.parseInt(firstValue.substring(1).replace(",",""))>50000);
+	assertTrue(Integer.parseInt(lastValue.substring(1).replace(",",""))<250000);
+	
+	
+	
 	
 }
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
