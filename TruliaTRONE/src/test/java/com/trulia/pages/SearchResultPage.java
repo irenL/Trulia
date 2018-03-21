@@ -11,7 +11,6 @@ import com.trulia.utilities.Driver;
 
 public class SearchResultPage {
 	private WebDriver driver;
-
 	public SearchResultPage() {
 		this.driver = Driver.getDriver();
 		PageFactory.initElements(driver, this);
@@ -65,9 +64,14 @@ public class SearchResultPage {
 	@FindBy(xpath="//*[@id=\"srpHeaderLeftColumn\"]//h2")
 	public WebElement resultsColumn;
 	
+	@FindBy(xpath="//*[@id=\"resultsColumn\"]//li[1]//div[2]//span")
+	public WebElement firstResultPriceValue;
 	
+	@FindBy(xpath="//*[@id=\"resultsColumn\"]//li[32]//div[2]//span")
+	public WebElement lastResultPriceValue;
 	
-	
+
+		
 	
 
 
