@@ -11,7 +11,6 @@ import org.openqa.selenium.support.PageFactory;
 import com.trulia.utilities.Driver;
 
 
-
 public class HomePage {
 	private WebDriver driver;
 
@@ -84,6 +83,16 @@ public class HomePage {
 	
 	@FindBy(xpath="//*[@id=\"navbarContainer\"]//section[1]/ul/li[1]/ul/li[3]/a")
 	public WebElement buyNewHomesLink;
+	
+	@FindBy(id="priceToggle")
+	public WebElement priceToggle;
+	
+	@FindBy(id="minPrice")
+	public WebElement minPriceLink;
+	
+	@FindBy(id="maxPrice")
+	public WebElement maxPriceLink;
+	
 	
 
 	
