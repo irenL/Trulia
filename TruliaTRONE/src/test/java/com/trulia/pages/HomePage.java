@@ -82,6 +82,12 @@ public class HomePage {
 	@FindBy(xpath = "//a[@href='/logout/']")
 	public WebElement logOutOfAccountIL;
 	
+	@FindBy(xpath="//*[@id=\"navbarContainer\"]//section[1]/ul/li[1]/ul/li[3]/a")
+	public WebElement buyNewHomesLink;
+	
+
+	
+	
 	// Ahmed please DO NOT DELETE this method because smoke will not work 
 	public boolean signInIsDisplayed() {
 		boolean signin;

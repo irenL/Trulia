@@ -37,4 +37,38 @@ public class SearchResultPage {
 	
 	@FindBy(xpath="//div[@id='bedroomsButtonGroup']//button[.='1+']")
 	public WebElement AHMallBedsOption1PLUS;
+
+	@FindBy(xpath="//*[@id=\'navbarContainer\']//section[1]/header/a")
+	public WebElement buyLink;
+	
+	@FindBy(xpath="//*[@id=\'navbarContainer\']//section[1]/ul//a")
+	public List<WebElement> buyLinkMenu;
+	
+	@FindBy(xpath="(//*[@id=\"navbarContainer\"]//section[1]/ul//a)[1]")
+	public WebElement homesForSaleButton;
+	
+	@FindBy(id="homeTypeToggle")
+	public WebElement allHomeTypesButton;
+	
+	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//label")
+	public List<WebElement> allHomeTypesMenu;
+	
+	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[1]/div[2]")
+	public WebElement condoButton;
+	
+	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[1]/div[3]")
+	public WebElement townHomeButton;
+	
+	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[2]/div[1]")
+	public WebElement landButton;
+	
+	@FindBy(xpath="//*[@id=\"srpHeaderLeftColumn\"]//h2")
+	public WebElement resultsColumn;
+	
+	
+	
+	
+	
+
+
 }
