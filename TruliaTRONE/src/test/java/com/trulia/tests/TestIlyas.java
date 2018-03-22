@@ -170,26 +170,46 @@ public class TestIlyas extends TestBase{
 	String firstValue=searchResultPage.firstResultPriceValue.getText();
 	String lastValue=searchResultPage.lastResultPriceValue.getText();
 	
-	
 	assertTrue(Integer.parseInt(firstValue.substring(1).replace(",",""))>50000);
 	assertTrue(Integer.parseInt(lastValue.substring(1).replace(",",""))<250000);
-	
-	
-	
-	
 }
 
 
+	@Test
+	public void TC010() {
+	// step1
+	driver.manage().window().maximize();
+	assertTrue(homePage.isAtURL());
+	assertTrue(homePage.isAtTitle());
+	//step2
+	Actions action = new Actions(driver);
+	
+	BrowserUtils.waitFor(2);
+	action.moveToElement(searchResultPage.buyLink).perform();
+	BrowserUtils.waitFor(2);
+	assertTrue(homePage.AHMmenuOpenHousesLink.isDisplayed());
+	//step3
+	homePage.AHMmenuOpenHousesLink.click();
+	assertTrue(driver.getTitle().contains("Open Houses"));
+	//step4
+	searchResultPage.allHomeTypesButton.click();
+	String actual2 = "";
+	String expected2 = "House Condo Townhome Multi-Family Land Mobile/Manufactured Other";
+	for (WebElement b : searchResultPage.allHomeTypesMenu) {
+		actual2 += b.getText() + " ";}
+	assertTrue(actual2.trim().contains(expected2));
+	//step5
+	searchResultPage.condoButton.click();
+	searchResultPage.houseButton.click();
+	searchResultPage.multiFamilyButton.click();
+	searchResultPage.townHomeButton.click();
+	searchResultPage.landButton.click();
+	searchResultPage.mobileManufactureButton.click();
+	searchResultPage.otherButton.click();
+	//step6 this step is incompatible with the former one
+	assertTrue(driver.getCurrentUrl().contains("MULTI-FAMILY"));
 
-
-
-
-
-
-
-
-
-
+	}
 
 
 
