@@ -52,6 +52,9 @@ public class SearchResultPage {
 	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//label")
 	public List<WebElement> allHomeTypesMenu;
 	
+	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[1]/div[1]/span")
+	public WebElement houseButton;
+	
 	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[1]/div[2]")
 	public WebElement condoButton;
 	
@@ -60,6 +63,21 @@ public class SearchResultPage {
 	
 	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[2]/div[1]")
 	public WebElement landButton;
+	
+	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[4]//label")
+	public WebElement multiFamilyButton;
+	
+	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div//div[2]//div[2]")
+	public WebElement mobileManufactureButton;
+	
+	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div/div[2]/div[3]")
+	public WebElement otherButton;
+	
+	
+	
+	
+	
+	
 	
 	@FindBy(xpath="//*[@id=\"srpHeaderLeftColumn\"]//h2")
 	public WebElement resultsColumn;
