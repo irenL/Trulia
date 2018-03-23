@@ -33,33 +33,33 @@ public class TestIlyas extends TestBase{
 	Assert.assertEquals(driver.getTitle(),"Schaumburg, IL Real Estate & Homes For Sale | Trulia");
 	//Step3
 	Actions actions = new Actions(driver);
-	actions.moveToElement(searchResultPage.buyLink).perform();
+	actions.moveToElement(searchResultPage.ILYbuyLink).perform();
 	String actual = "";
 	String expected = "Homes for Sale";
-	for (WebElement a : searchResultPage.buyLinkMenu) {
+	for (WebElement a : searchResultPage.ILYbuyLinkMenu) {
 		actual += a.getText() + " ";
 	}
 		assertTrue(actual.trim().contains(expected));
 	//Step 4
-	searchResultPage.homesForSaleButton.click();
+	searchResultPage.ILYhomesForSaleButton.click();
 	assertEquals(driver.getTitle(), "Schaumburg, IL Real Estate & Homes For Sale | Trulia");
 	//Step 5
-	searchResultPage.allHomeTypesButton.click();
+	searchResultPage.ILYallHomeTypesButton.click();
 	String actual2 = "";
  	String expected2 = "House Condo Townhome Multi-Family Land Mobile/Manufactured Other";
-	for (WebElement b : searchResultPage.allHomeTypesMenu) {
+	for (WebElement b : searchResultPage.ILYallHomeTypesMenu) {
 		actual2 += b.getText() + " ";}
 
 	assertTrue(actual2.trim().contains(expected2));
 	
 	//Step 6
-	searchResultPage.condoButton.click();
+	searchResultPage.ILYcondoButton.click();
 	BrowserUtils.waitFor(1);
-	searchResultPage.landButton.click();
+	searchResultPage.ILYlandButton.click();
 	BrowserUtils.waitFor(1);
-	searchResultPage.townHomeButton.click();
+	searchResultPage.ILYtownHomeButton.click();
 	
-	int numHOmes=Integer.parseInt(searchResultPage.resultsColumn.getText().substring(0, 3));
+	int numHOmes=Integer.parseInt(searchResultPage.ILYresultsColumn.getText().substring(0, 3));
 	assertTrue(numHOmes>1);
 	
 	
@@ -77,13 +77,13 @@ public class TestIlyas extends TestBase{
 	Actions actions = new Actions(driver);
 	
 	BrowserUtils.waitFor(2);
-	actions.moveToElement(searchResultPage.buyLink).perform();
+	actions.moveToElement(searchResultPage.ILYbuyLink).perform();
 	BrowserUtils.waitFor(2);
 	assertTrue(homePage.AHMmenuBuyLink.isDisplayed());
 	//Step3
 	homePage.searchFieldIL.clear();
 	BrowserUtils.waitFor(2);
-	homePage.buyNewHomesLink.click();
+	homePage.ILYbuyNewHomesLink.click();
 	BrowserUtils.waitFor(2);
 	assertTrue(driver.getTitle().contains("New Homes"));
 	assertTrue(searchResultPage.AHMsearchBar.isDisplayed());
@@ -132,7 +132,7 @@ public class TestIlyas extends TestBase{
 	//step3
 	Actions actions = new Actions(driver);
 	BrowserUtils.waitFor(2);
-	actions.moveToElement(searchResultPage.buyLink).perform();
+	actions.moveToElement(searchResultPage.ILYbuyLink).perform();
 	BrowserUtils.waitFor(2);
 	String actual4 = "";
 	String expected4 = "Open Houses";
@@ -145,9 +145,9 @@ public class TestIlyas extends TestBase{
 	homePage.AHMmenuOpenHousesLink.click();
 	BrowserUtils.waitFor(3);
 	assertTrue(driver.getTitle().contains("Pittsburgh, PA Open Houses"));
-	assertTrue(homePage.priceToggle.isDisplayed());
+	assertTrue(homePage.ILYpriceToggle.isDisplayed());
 	//step5
-	homePage.priceToggle.click();
+	homePage.ILYpriceToggle.click();
 	BrowserUtils.waitFor(3);
 	WebElement minPriceDropDown=driver.findElement(By.id("minPrice"));
 	Select list=new Select(minPriceDropDown);	
@@ -156,19 +156,19 @@ public class TestIlyas extends TestBase{
 	Select list2=new Select(maxPriceDropDown);
 	assertTrue(maxPriceDropDown.isEnabled());
 	//step6
-	homePage.minPriceLink.click();
+	homePage.ILYminPriceLink.click();
 	BrowserUtils.waitFor(2);
 	list.selectByVisibleText("$50k");
 	BrowserUtils.waitFor(3);
-	homePage.maxPriceLink.click();
+	homePage.ILYmaxPriceLink.click();
 	BrowserUtils.waitFor(2);
 	list2.selectByVisibleText("$250k");
 	BrowserUtils.waitFor(3);
 	
 	BrowserUtils.waitFor(3);
 	
-	String firstValue=searchResultPage.firstResultPriceValue.getText();
-	String lastValue=searchResultPage.lastResultPriceValue.getText();
+	String firstValue=searchResultPage.ILYfirstResultPriceValue.getText();
+	String lastValue=searchResultPage.ILYlastResultPriceValue.getText();
 	
 	assertTrue(Integer.parseInt(firstValue.substring(1).replace(",",""))>50000);
 	assertTrue(Integer.parseInt(lastValue.substring(1).replace(",",""))<250000);
@@ -185,27 +185,27 @@ public class TestIlyas extends TestBase{
 	Actions action = new Actions(driver);
 	
 	BrowserUtils.waitFor(2);
-	action.moveToElement(searchResultPage.buyLink).perform();
+	action.moveToElement(searchResultPage.ILYbuyLink).perform();
 	BrowserUtils.waitFor(2);
 	assertTrue(homePage.AHMmenuOpenHousesLink.isDisplayed());
 	//step3
 	homePage.AHMmenuOpenHousesLink.click();
 	assertTrue(driver.getTitle().contains("Open Houses"));
 	//step4
-	searchResultPage.allHomeTypesButton.click();
+	searchResultPage.ILYallHomeTypesButton.click();
 	String actual2 = "";
 	String expected2 = "House Condo Townhome Multi-Family Land Mobile/Manufactured Other";
-	for (WebElement b : searchResultPage.allHomeTypesMenu) {
+	for (WebElement b : searchResultPage.ILYallHomeTypesMenu) {
 		actual2 += b.getText() + " ";}
 	assertTrue(actual2.trim().contains(expected2));
 	//step5
-	searchResultPage.condoButton.click();
-	searchResultPage.houseButton.click();
-	searchResultPage.multiFamilyButton.click();
-	searchResultPage.townHomeButton.click();
-	searchResultPage.landButton.click();
-	searchResultPage.mobileManufactureButton.click();
-	searchResultPage.otherButton.click();
+	searchResultPage.ILYcondoButton.click();
+	searchResultPage.ILYhouseButton.click();
+	searchResultPage.ILYmultiFamilyButton.click();
+	searchResultPage.ILYtownHomeButton.click();
+	searchResultPage.ILYlandButton.click();
+	searchResultPage.ILYmobileManufactureButton.click();
+	searchResultPage.ILYotherButton.click();
 	//step6 this step is incompatible with the former one
 	assertTrue(driver.getCurrentUrl().contains("MULTI-FAMILY"));
 
