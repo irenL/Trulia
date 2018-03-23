@@ -82,16 +82,16 @@ public class HomePage {
 	public WebElement logOutOfAccountIL;
 	
 	@FindBy(xpath="//*[@id=\"navbarContainer\"]//section[1]/ul/li[1]/ul/li[3]/a")
-	public WebElement buyNewHomesLink;
+	public WebElement ILYbuyNewHomesLink;
 	
 	@FindBy(id="priceToggle")
-	public WebElement priceToggle;
+	public WebElement ILYpriceToggle;
 	
 	@FindBy(id="minPrice")
-	public WebElement minPriceLink;
+	public WebElement ILYminPriceLink;
 	
 	@FindBy(id="maxPrice")
-	public WebElement maxPriceLink;
+	public WebElement ILYmaxPriceLink;
 	
 	
 
