@@ -38,55 +38,49 @@ public class SearchResultPage {
 	public WebElement AHMallBedsOption1PLUS;
 
 	@FindBy(xpath="//*[@id=\'navbarContainer\']//section[1]/header/a")
-	public WebElement buyLink;
+	public WebElement ILYbuyLink;
 	
 	@FindBy(xpath="//*[@id=\'navbarContainer\']//section[1]/ul//a")
-	public List<WebElement> buyLinkMenu;
+	public List<WebElement> ILYbuyLinkMenu;
 	
 	@FindBy(xpath="(//*[@id=\"navbarContainer\"]//section[1]/ul//a)[1]")
-	public WebElement homesForSaleButton;
+	public WebElement ILYhomesForSaleButton;
 	
 	@FindBy(id="homeTypeToggle")
-	public WebElement allHomeTypesButton;
+	public WebElement ILYallHomeTypesButton;
 	
 	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//label")
-	public List<WebElement> allHomeTypesMenu;
+	public List<WebElement> ILYallHomeTypesMenu;
 	
 	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[1]/div[1]/span")
-	public WebElement houseButton;
+	public WebElement ILYhouseButton;
 	
 	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[1]/div[2]")
-	public WebElement condoButton;
+	public WebElement ILYcondoButton;
 	
 	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[1]/div[3]")
-	public WebElement townHomeButton;
+	public WebElement ILYtownHomeButton;
 	
 	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[2]/div[1]")
-	public WebElement landButton;
+	public WebElement ILYlandButton;
 	
 	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[4]//label")
-	public WebElement multiFamilyButton;
+	public WebElement ILYmultiFamilyButton;
 	
 	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div//div[2]//div[2]")
-	public WebElement mobileManufactureButton;
+	public WebElement ILYmobileManufactureButton;
 	
 	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div/div[2]/div[3]")
-	public WebElement otherButton;
-	
-	
-	
-	
-	
-	
+	public WebElement ILYotherButton;
 	
 	@FindBy(xpath="//*[@id=\"srpHeaderLeftColumn\"]//h2")
-	public WebElement resultsColumn;
+	public WebElement ILYresultsColumn;
 	
 	@FindBy(xpath="//*[@id=\"resultsColumn\"]//li[1]//div[2]//span")
-	public WebElement firstResultPriceValue;
+	public WebElement ILYfirstResultPriceValue;
 	
 	@FindBy(xpath="//*[@id=\"resultsColumn\"]//li[32]//div[2]//span")
-	public WebElement lastResultPriceValue;
+	public WebElement ILYlastResultPriceValue;
 	
 
 		
