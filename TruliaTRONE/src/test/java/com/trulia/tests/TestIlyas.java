@@ -110,8 +110,7 @@ public class TestIlyas extends TestBase{
 	searchResultPage.AHMallBedsOption4PLUS.click();
 	BrowserUtils.waitFor(3);
 	assertEquals(searchResultPage.AHMh1.getText(), "Windermere, FL 4 Bedroom Homes For Sale");
-	
-	}
+		}
 	
 	@Test
 	public void TC009() {
