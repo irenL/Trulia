@@ -34,5 +34,11 @@ public class TestAla extends TestBase{
 		searchResultPage.AHMsearchBar.sendKeys("Miami Beach, FL" + Keys.ENTER);
 		BrowserUtils.waitFor(3);
 		assertEquals(driver.getTitle(), "Miami Beach Recently Sold Properties | Trulia");
+		
+		System.out.println("Hello Ahmed");
 	}
+	
+	
+	
+	
 }
