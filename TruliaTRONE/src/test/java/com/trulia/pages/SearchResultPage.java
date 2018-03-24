@@ -37,4 +37,79 @@ public class SearchResultPage {
 	
 	@FindBy(xpath="//div[@id='bedroomsButtonGroup']//button[.='1+']")
 	public WebElement AHMallBedsOption1PLUS;
+	
+	@FindBy(xpath="//div[@id='bedroomsButtonGroup']//button[.='3+']")
+	public WebElement AHMallBedsOption3PLUS;
+	
+	@FindBy(xpath="//li[@data-auto-test='beds']")
+	public List<WebElement> listingNumberofBeds;
+	
+	//=========================================
+	
+	@FindBy(xpath="//a[@data-reactid='83']") 
+	public WebElement menuBuyLink;
+	
+	@FindBy(linkText="Homes for Sale")//data-reactid="89"
+	public WebElement homesForSale;
+	
+	@FindBy(id="homeTypeToggle")
+	public WebElement homeTypesDropdown;
+	
+	public WebElement homeType0; // House
+	public WebElement homeType1; // Condo
+	public WebElement homeType2; // Townhome
+	public WebElement homeType3; // Multi-Family
+	public WebElement homeType4; // Land
+	public WebElement homeType5; // Mobile/Manufactured
+	public WebElement homeType6; // Other
+	
+	@FindBy(xpath="//*[@id=\"srpHeaderLeftColumn\"]//h2")
+	public WebElement numberOfResultLine;
+	
+	//==========================================
+	@FindBy(xpath="//*[@id=\'navbarContainer\']//section[1]/header/a")
+	public WebElement ILYbuyLink;
+	
+	@FindBy(xpath="//*[@id=\'navbarContainer\']//section[1]/ul//a")
+	public List<WebElement> ILYbuyLinkMenu;
+	
+	@FindBy(xpath="(//*[@id=\"navbarContainer\"]//section[1]/ul//a)[1]")
+	public WebElement ILYhomesForSaleButton;
+	
+	@FindBy(id="homeTypeToggle")
+	public WebElement ILYallHomeTypesButton;
+	
+	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//label")
+	public List<WebElement> ILYallHomeTypesMenu;
+	
+	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[1]/div[1]/span")
+	public WebElement ILYhouseButton;
+	
+	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[1]/div[2]")
+	public WebElement ILYcondoButton;
+	
+	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[1]/div[3]")
+	public WebElement ILYtownHomeButton;
+	
+	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[2]/div[1]")
+	public WebElement ILYlandButton;
+	
+	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[4]//label")
+	public WebElement ILYmultiFamilyButton;
+	
+	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div//div[2]//div[2]")
+	public WebElement ILYmobileManufactureButton;
+	
+	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div/div[2]/div[3]")
+	public WebElement ILYotherButton;
+	
+	@FindBy(xpath="//*[@id=\"srpHeaderLeftColumn\"]//h2")
+	public WebElement ILYresultsColumn;
+	
+	@FindBy(xpath="//*[@id=\"resultsColumn\"]//li[1]//div[2]//span")
+	public WebElement ILYfirstResultPriceValue;
+	
+	@FindBy(xpath="//*[@id=\"resultsColumn\"]//li[32]//div[2]//span")
+	public WebElement ILYlastResultPriceValue;
+	
 }

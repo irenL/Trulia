@@ -1,14 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Presta shop automated smoke tests " verbose="2">
-		<test name="Checkout">
-			<packages>
-				<package name="com.prestashop.tests.checkout"></package>
-			</packages>
-		</test>
-		<test name="Search">
-			<classes>
-				<class name="com.prestashop.tests.search.SearchTest"></class>
-			</classes>
-		</test>
+<suite name="Trulia Smoke Test" verbose="2">
+	<test name="Trulia smoke test">
+		<classes>
+			<class name="com.trulia.tests.SmokeTest"></class>
+		</classes>
+	</test>
 </suite>

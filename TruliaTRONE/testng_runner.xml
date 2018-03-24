@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Trulia automation tests" verbose="2">
+<suite name="Trulia Automation Tests" verbose="2">
 	<test name="Trulia tests">
 		<classes>
-			<class name="com.trulia.tests.TestAhmed"></class>
+			<class name="com.trulia.tests.Tests"></class>
 		</classes>
 	</test>
 </suite>
