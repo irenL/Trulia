@@ -89,6 +89,7 @@ public class HomePage {
 	
 	@FindBy(id="minPrice")
 	public WebElement ILYminPriceLink;
+
 	
 	@FindBy(id="maxPrice")
 	public WebElement ILYmaxPriceLink;
