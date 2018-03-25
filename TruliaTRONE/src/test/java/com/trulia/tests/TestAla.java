@@ -16,28 +16,28 @@ public class TestAla extends TestBase{
 	HomePage homePage = new HomePage();
 	SearchResultPage searchResultPage = new SearchResultPage();
 	
-	@Test
-	public void TC002() {
-		// step1
-		assertTrue(homePage.isAtURL());
-		assertTrue(homePage.isAtTitle());
-		// step2
-		assertTrue(homePage.AHMmenuBuyLink.isDisplayed());
-		Actions actions = new Actions(driver);
-		actions.moveToElement(homePage.AHMmenuBuyLink).perform();
-		// step3
-		assertTrue(homePage.AHMmenuRecentlySoldLink.isDisplayed());
-		homePage.AHMmenuRecentlySoldLink.click();
-		assertTrue(searchResultPage.AHMh1.getText().contains("Recently Sold Homes"));
-		// step4
-		searchResultPage.AHMsearchBar.clear();
-		searchResultPage.AHMsearchBar.sendKeys("Miami Beach, FL" + Keys.ENTER);
-		BrowserUtils.waitFor(3);
-		assertEquals(driver.getTitle(), "Miami Beach Recently Sold Properties | Trulia");
-		
-		System.out.println("Hello Ahmed");
-	}
-	
+//	@Test
+//	public void TC002() {
+//		// step1
+//		assertTrue(homePage.isAtURL());
+//		assertTrue(homePage.isAtTitle());
+//		// step2
+//		assertTrue(homePage.AHMmenuBuyLink.isDisplayed());
+//		Actions actions = new Actions(driver);
+//		actions.moveToElement(homePage.AHMmenuBuyLink).perform();
+//		// step3
+//		assertTrue(homePage.AHMmenuRecentlySoldLink.isDisplayed());
+//		homePage.AHMmenuRecentlySoldLink.click();
+//		assertTrue(searchResultPage.AHMh1.getText().contains("Recently Sold Homes"));
+//		// step4
+//		searchResultPage.AHMsearchBar.clear();
+//		searchResultPage.AHMsearchBar.sendKeys("Miami Beach, FL" + Keys.ENTER);
+//		BrowserUtils.waitFor(3);
+//		assertEquals(driver.getTitle(), "Miami Beach Recently Sold Properties | Trulia");
+//		
+//		System.out.println("Hello Ahmed");
+//	}
+//	
 	
 	
 	
