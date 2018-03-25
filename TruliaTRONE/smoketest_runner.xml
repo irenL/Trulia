@@ -1,9 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Automated test" verbose="2">
-		<test name="smokeTest">
-			<classes>
+
+<suite name="Trulia Smoke Test" verbose="2">
+	
+	<test name="Trulia smoke test">
+		<classes>
 			<class name="com.trulia.tests.SmokeTest"></class>
 		</classes>
-		</test>
+	</test>
+
 </suite>
