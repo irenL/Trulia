@@ -5,10 +5,12 @@
     <classes>
       <class name="com.trulia.tests.Tests">
         <methods>
+          <include name="TC0012"/>
           <include name="tearDown"/>
+          <include name="TC003"/>
           <include name="beforeMethod"/>
-          <include name="TC015"/>
-          <include name="TC006"/>
+          <include name="TC004"/>
+          <include name="TC009"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.trulia.tests.Tests -->

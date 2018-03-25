@@ -13,18 +13,53 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 import com.trulia.pages.HomePage;
+import com.trulia.pages.SearchMenuPage;
 import com.trulia.pages.SearchResultPage;
 import com.trulia.utilities.BrowserUtils;
 import com.trulia.utilities.ConfigurationReader;
 import com.trulia.utilities.TestBase;
 
+
 public class Tests extends TestBase {
 	HomePage homePage = new HomePage();
 	SearchResultPage searchResultPage = new SearchResultPage();
+	SearchMenuPage searchMenuPage = new SearchMenuPage();
 
-	
-	
-	@Test(enabled=true)
+	@Test(enabled = true)
+	public void TC001() {
+		// Step 1
+		assertTrue(homePage.isAtTitle(),
+				"Actual title not equal 'Trulia : Real Estate Listing, Homes For Sale , Housing Date'");
+		// Step 2
+		Actions action = new Actions(driver);
+		action.moveToElement(homePage.linkBuyIL).moveToElement(homePage.linkOpenHousesIL).click().perform();
+		BrowserUtils.waitFor(1);
+		// Step 3
+		assertTrue(searchMenuPage.searchFilterButtonAnyPriceIL.isDisplayed());
+		BrowserUtils.waitFor(1);
+		// Step 4
+		searchMenuPage.menuSearchFieldIL.clear();
+		String windermere = "Windermere, FL";
+		searchMenuPage.menuSearchFieldIL.sendKeys(windermere + Keys.ENTER);
+		BrowserUtils.waitFor(1);
+		assertTrue(driver.getTitle().contains(windermere));
+		// Step 5
+		searchMenuPage.searchFilterButtonAnyPriceIL.click();
+		BrowserUtils.waitFor(1);
+		assertTrue(searchMenuPage.isNoMin(), "Actual not equal 'No Min' ");
+		assertTrue(searchMenuPage.isNoMax(), "Actual not equal 'No Max' ");
+		// Step 6
+		BrowserUtils.waitFor(1);
+		Select selectPrice = new Select(searchMenuPage.minPriceIL);
+		selectPrice.selectByValue("10000");
+		selectPrice = new Select(searchMenuPage.maxPriceIL);
+		selectPrice.selectByValue("10000");
+		// Step 7
+		BrowserUtils.waitFor(2);
+		assertTrue(searchResultPage.adjustFiltersIsDisplayed());
+	}
+
+	@Test(enabled = true)
 	public void TC002() {
 		// step1
 		assertTrue(homePage.isAtURL());
@@ -44,7 +79,7 @@ public class Tests extends TestBase {
 		assertEquals(driver.getTitle(), "Miami Beach Recently Sold Properties | Trulia");
 	}
 
-	@Test(enabled=true)
+	@Test(enabled = true)
 	public void TC003() {
 		// step1
 		assertTrue(homePage.isAtURL());
@@ -69,8 +104,9 @@ public class Tests extends TestBase {
 
 	}
 
-	@Test(enabled=true)
+	@Test(enabled = true)
 	public void TC004() {
+		
 		assertTrue(homePage.isAtURL());
 		assertTrue(homePage.isAtTitle());
 
@@ -91,7 +127,7 @@ public class Tests extends TestBase {
 
 	}
 
-	@Test(enabled=true)
+	@Test(enabled = true)
 	public void TC005() {
 		// step1
 		assertTrue(homePage.isAtURL());
@@ -106,7 +142,7 @@ public class Tests extends TestBase {
 
 	}
 
-	@Test(enabled=true)
+	@Test(enabled = true)
 	public void TC006() {
 		// step1
 		driver.manage().window().maximize();
@@ -140,7 +176,7 @@ public class Tests extends TestBase {
 
 	}
 
-	@Test(enabled=true)
+	@Test(enabled = true)
 	public void TC007() {
 		// step1
 		driver.manage().window().maximize();
@@ -186,7 +222,7 @@ public class Tests extends TestBase {
 
 	}
 
-	@Test(enabled=true)
+	@Test(enabled = true)
 	public void TC008() {
 		// step1
 		driver.manage().window().maximize();
@@ -220,7 +256,7 @@ public class Tests extends TestBase {
 		assertTrue(driver.getTitle().contains("Windermere, FL New Homes For Sale"));
 	}
 
-	@Test(enabled=true)
+	@Test(enabled = true)
 	public void TC009() {
 		// step1
 		driver.manage().window().maximize();
@@ -231,7 +267,6 @@ public class Tests extends TestBase {
 		BrowserUtils.waitFor(2);
 		homePage.searchFieldIL.sendKeys("Pittsburg,PA");
 		BrowserUtils.waitFor(2);
-		System.out.println(homePage.searchFieldIL.getAttribute("value"));
 		assertTrue(homePage.searchFieldIL.getAttribute("value").equals("Pittsburg,PA"));
 		homePage.searchButtonIL.click();
 		BrowserUtils.waitFor(2);
@@ -270,9 +305,7 @@ public class Tests extends TestBase {
 		homePage.ILYmaxPriceLink.click();
 		BrowserUtils.waitFor(2);
 		list2.selectByVisibleText("$250k");
-		BrowserUtils.waitFor(3);
-
-		BrowserUtils.waitFor(3);
+		BrowserUtils.waitFor(5);
 
 		String firstValue = searchResultPage.ILYfirstResultPriceValue.getText();
 		String lastValue = searchResultPage.ILYlastResultPriceValue.getText();
@@ -281,7 +314,7 @@ public class Tests extends TestBase {
 		assertTrue(Integer.parseInt(lastValue.substring(1).replace(",", "")) < 250000);
 	}
 
-	@Test(enabled=true)
+	@Test(enabled = true)
 	public void TC010() {
 		// step1
 		driver.manage().window().maximize();
@@ -296,9 +329,11 @@ public class Tests extends TestBase {
 		assertTrue(homePage.AHMmenuOpenHousesLink.isDisplayed());
 		// step3
 		homePage.AHMmenuOpenHousesLink.click();
+		BrowserUtils.waitFor(3);
 		assertTrue(driver.getTitle().contains("Open Houses"));
 		// step4
 		searchResultPage.ILYallHomeTypesButton.click();
+		BrowserUtils.waitFor(3);
 		String actual2 = "";
 		String expected2 = "House Condo Townhome Multi-Family Land Mobile/Manufactured Other";
 		for (WebElement b : searchResultPage.ILYallHomeTypesMenu) {
@@ -314,11 +349,80 @@ public class Tests extends TestBase {
 		searchResultPage.ILYmobileManufactureButton.click();
 		searchResultPage.ILYotherButton.click();
 		// step6 this step is incompatible with the former one
+		BrowserUtils.waitFor(3);
 		assertTrue(driver.getCurrentUrl().contains("MULTI-FAMILY"));
 
 	}
 
-	@Test(enabled=true)
+	@Test(enabled = true)
+	public void TC011() {
+		// Step 1
+		assertTrue(homePage.isAtTitle(),
+				"Actual title not equal 'Trulia : Real Estate Listing, Homes For Sale , Housing Date'");
+		// Step 2
+		Actions action = new Actions(driver);
+		action.moveToElement(homePage.linkBuyIL).moveToElement(homePage.linkOpenHousesIL).click().perform();
+		BrowserUtils.waitFor(1);
+		assertTrue(driver.getTitle().contains("Open Houses"), "Title does not contain 'Open Houses'");
+		BrowserUtils.waitFor(1);
+		searchMenuPage.searchFilterButtonAllHomeTypesIL.click();
+		assertTrue(searchMenuPage.homeTypesDropdownWindowIL.isDisplayed(),
+				"All Home Types drop down window is not appear");
+		BrowserUtils.waitFor(1);
+		assertTrue(searchMenuPage.ListOfElementsIsDisplayed());
+		BrowserUtils.waitFor(1);
+		assertTrue(searchResultPage.numberResultIsDisplayed(), "Your search does not match any homes");
+	}
+
+	@Test(enabled = true)
+	public void TC012() {
+		
+		String actualUrl = driver.getCurrentUrl();
+		String expectedUrl = "https://www.trulia.com/";
+		boolean resultHPUrl = BrowserUtils.getCurrentUrl(expectedUrl, actualUrl);
+		assertTrue(resultHPUrl, "Expected url not equal ectual");
+		BrowserUtils.waitFor(1);
+		assertTrue(homePage.isAtTitle(), "Title is not equal expected");
+		Actions action = new Actions(driver);
+		action.moveToElement(homePage.linkBuyIL).moveToElement(homePage.linkHomesForSaleIL).click().perform();
+		BrowserUtils.waitFor(2);
+		searchMenuPage.searchFilterButtonAnyPriceIL.click();
+		BrowserUtils.waitFor(1);
+		assertTrue(driver.getTitle().contains("Homes For Sale"), "Title does not contain 'Homes For Sale'");
+		BrowserUtils.waitFor(1);
+		assertTrue(searchMenuPage.isNoMin(), "Actual not equal 'No Min' ");
+		assertTrue(searchMenuPage.isNoMax(), "Actual not equal 'No Max' ");
+		Select selectPrice = new Select(searchMenuPage.minPriceIL);
+		selectPrice.selectByValue("10000");
+		selectPrice = new Select(searchMenuPage.maxPriceIL);
+		selectPrice.selectByValue("20000");
+		BrowserUtils.waitFor(1);
+		assertTrue(searchMenuPage.isInGivenPriceRange(), "Price range not equal given range");
+		BrowserUtils.waitFor(1);
+		assertTrue(searchResultPage.homePricesIsAtGivenRange(searchResultPage.listOfHomesPricesIL, 10000, 20000),
+				"Any Price Filter does not sort by given range");
+
+	}
+
+	@Test(enabled = true)
+	public void TC013() {
+		
+		driver.manage().window().maximize();
+		Actions action = new Actions(driver);
+		action.moveToElement(homePage.linkBuyIL).moveToElement(homePage.linkNewHomeIL).click().perform();
+		BrowserUtils.waitFor(2);
+		assertTrue(driver.getTitle().contains("New Homes For Sale"), "Title does not contain 'New Homes For Sale'");
+		searchMenuPage.searchFilterButtonKeywordsIL.click();
+		assertTrue(searchMenuPage.keywordsDropdownWindowIL.isDisplayed(), "Keyword drop down window is not displayed");
+		BrowserUtils.waitFor(1);
+		searchMenuPage.keywordInputFieldIL.sendKeys("parking garage" + Keys.ENTER);
+		BrowserUtils.waitFor(1);
+		assertTrue(searchResultPage.numberResultIsDisplayed(), "Your search does not match any homes");
+		BrowserUtils.waitFor(1);
+		assertTrue(searchResultPage.parkingGarageIsDisplayed(), "Filter 'parking garage' is not displayed");
+	}
+
+	@Test(enabled = true)
 	public void TC014() {
 		// step1
 		assertTrue(homePage.isAtURL());
@@ -338,7 +442,7 @@ public class Tests extends TestBase {
 		}
 	}
 
-	@Test(enabled=true)
+	@Test(enabled = true)
 	public void TC015() {
 		// step1
 		assertTrue(homePage.isAtURL());
@@ -370,7 +474,7 @@ public class Tests extends TestBase {
 		}
 	}
 
-	@Test(enabled=true)
+	@Test(enabled = true)
 	public void TC016() {
 		// step1
 		assertTrue(homePage.isAtURL());
@@ -403,7 +507,7 @@ public class Tests extends TestBase {
 
 	}
 
-	@Test(enabled=true)
+	@Test(enabled = true)
 	public void TC017() {
 		// step1
 		assertTrue(homePage.isAtURL());
@@ -419,7 +523,7 @@ public class Tests extends TestBase {
 		assertTrue(driver.getTitle().contains("Public & Private Schools"));
 	}
 
-	@Test(enabled=true)
+	@Test(enabled = true)
 	public void TC018() {
 		// step1
 		assertTrue(homePage.isAtURL());
@@ -436,7 +540,7 @@ public class Tests extends TestBase {
 		assertTrue(driver.getTitle().contains("Real Estate Market Trends"));
 	}
 
-	@Test(enabled=true)
+	@Test(enabled = true)
 	public void TC019() {
 		// step1
 		assertTrue(homePage.isAtURL());
@@ -468,7 +572,7 @@ public class Tests extends TestBase {
 		assertEquals(searchResultPage.AHMh1.getText(), "Pittsburgh, PA 1 Bedroom Open Homes");
 	}
 
-	@Test(enabled=true)
+	@Test(enabled = true)
 	public void TC020() {
 		// step1
 		assertTrue(homePage.isAtURL());
@@ -502,5 +606,7 @@ public class Tests extends TestBase {
 		assertEquals(searchResultPage.AHMh1.getText(), "Pittsburgh, PA 4 Bedroom Open Homes");
 		ConfigurationReader.getProperty("email");
 	}
+
+	
 
 }

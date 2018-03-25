@@ -2,6 +2,7 @@ package com.trulia.pages;
 
 import java.util.List;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -121,7 +122,7 @@ public class SearchResultPage {
 	
 	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[2]/div[1]")
 	public WebElement ILYlandButton;
-	s
+
 	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[4]//label")
 	public WebElement ILYmultiFamilyButton;
 	
@@ -140,5 +141,55 @@ public class SearchResultPage {
 	@FindBy(xpath="//*[@id=\"resultsColumn\"]//li[32]//div[2]//span")
 	public WebElement ILYlastResultPriceValue;
 	
+//===========================================================
+	
+	@FindBy(xpath = "//h2[@class='h6 typeLowlight pbs']")
+	public WebElement resultTotalNumberHomesFoundIL;
 
+	@FindBy(xpath = "//ul[@class='mvn row']/li[@class='xsCol12Landscape smlCol12 lrgCol8']/div/div/div[2]//span")
+	public List<WebElement> listOfHomesPricesIL;
+
+	@FindBy(xpath = "//div[@id='srpHeaderLeftColumn']//span[@class='pbm']")
+	public WebElement filterParkingGarageIL;
+
+	@FindBy(xpath = "//div[@class='ptm']")
+	public WebElement filtersWindowIL;
+
+	public boolean numberResultIsDisplayed() {
+		boolean result;
+		try {
+			result = resultTotalNumberHomesFoundIL.isDisplayed();
+		} catch (NoSuchElementException e) {
+			result = false;
+		}
+		return result;
+	}
+
+	public boolean parkingGarageIsDisplayed() {
+		boolean result;
+		try {
+			result = filterParkingGarageIL.isDisplayed();
+		} catch (NoSuchElementException e) {
+			result = false;
+		}
+		return result;
+	}
+
+	public boolean homePricesIsAtGivenRange(List<WebElement> elements, int rangeMin, int rangeMax) {
+		for (WebElement eachElement : elements) {
+			String str = eachElement.getText().replace("$", "").replace(",", "");
+			int inNumber = Integer.parseInt(str);
+			if (rangeMin <= inNumber && inNumber <= rangeMax) {
+			} else {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public boolean adjustFiltersIsDisplayed() {
+		return filtersWindowIL.getText()
+				.equals("Adjust filters to find more homes:\n" + "Price $10,000 Open Houses\n" + "Remove All Filters");
+	}
+	
 }

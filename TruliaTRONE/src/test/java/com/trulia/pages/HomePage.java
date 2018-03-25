@@ -13,6 +13,7 @@ import com.trulia.utilities.Driver;
 
 
 public class HomePage {
+
 	private WebDriver driver;
 
 	public HomePage() {
@@ -23,159 +24,170 @@ public class HomePage {
 	public boolean isAtTitle() {
 		return driver.getTitle().equals("Trulia: Real Estate Listings, Homes For Sale, Housing Data");
 	}
+
 	public boolean isAtURL() {
 		return driver.getCurrentUrl().equals("https://www.trulia.com/");
 	}
-	               
-	@FindBy(xpath="//a[@data-reactid='83']")
-	public WebElement AHMmenuBuyLink;
-	
-	@FindBy(xpath="//section[@data-reactid='81']//a")
-	public List<WebElement> AHMmenuBuyList;
-	
-	@FindBy(xpath="//section[@data-reactid='81']//a[text()='Open Houses']")
-	public WebElement AHMmenuOpenHousesLink;
-	
-	@FindBy(xpath="//section[@data-reactid='81']//a[text()='Recently Sold']")
-	public WebElement AHMmenuRecentlySoldLink;
-	
-	@FindBy(xpath="//section[@data-reactid='81']//a[text()='New Homes']")
-	public WebElement AHMmenuNewHomesLink;
-	
-	@FindBy(xpath="//a[@data-reactid='203']")
-	public WebElement AHMmenuLocalScoopLink;
-	
-	@FindBy(xpath="//section[@data-reactid='201']//a")
-	public List<WebElement> AHMmenuLocalScoopList;
-	
-	@FindBy(xpath="//section[@data-reactid='201']//a[text()='Schools']")
-	public WebElement AHMmenuShoolsLink;
-	
-	@FindBy(xpath="//section[@data-reactid='201']//a[text()='Market Trends']")
-	public WebElement AHMmenuMarketTrendsLink;
-	
-	@FindBy(xpath="//*[@data-reactid='67']")
-	public WebElement AHMlogoSVG;
-	
-//===============================================
-	
-	
-	@FindBy(xpath="//*[@id=\"navbarContainer\"]//section[1]/ul/li[1]/ul/li[3]/a")
-	public WebElement buyNewHomesLink;
-	
 
-	@FindBy(xpath="//*[@data-reactid='306']")
+	@FindBy(xpath = "//a[@data-reactid='83']")
+	public WebElement AHMmenuBuyLink;
+
+	@FindBy(xpath = "//section[@data-reactid='81']//a")
+	public List<WebElement> AHMmenuBuyList;
+
+	@FindBy(xpath = "//section[@data-reactid='81']//a[text()='Open Houses']")
+	public WebElement AHMmenuOpenHousesLink;
+
+	@FindBy(xpath = "//section[@data-reactid='81']//a[text()='Recently Sold']")
+	public WebElement AHMmenuRecentlySoldLink;
+
+	@FindBy(xpath = "//section[@data-reactid='81']//a[text()='New Homes']")
+	public WebElement AHMmenuNewHomesLink;
+
+	@FindBy(xpath = "//a[@data-reactid='203']")
+	public WebElement AHMmenuLocalScoopLink;
+
+	@FindBy(xpath = "//section[@data-reactid='201']//a")
+	public List<WebElement> AHMmenuLocalScoopList;
+
+	@FindBy(xpath = "//section[@data-reactid='201']//a[text()='Schools']")
+	public WebElement AHMmenuShoolsLink;
+
+	@FindBy(xpath = "//section[@data-reactid='201']//a[text()='Market Trends']")
+	public WebElement AHMmenuMarketTrendsLink;
+
+	@FindBy(xpath = "//*[@data-reactid='67']")
+	public WebElement AHMlogoSVG;
+
+	// ===============================================
+
+	@FindBy(xpath = "//*[@id=\"navbarContainer\"]//section[1]/ul/li[1]/ul/li[3]/a")
+	public WebElement buyNewHomesLink;
+
+	@FindBy(xpath = "//*[@data-reactid='306']")
 	public WebElement AHMsignInButton;
-	
-	@FindBy(xpath="//div[@class='mbs txtC h3 typeEmphasize']")
+
+	@FindBy(xpath = "//div[@class='mbs txtC h3 typeEmphasize']")
 	public WebElement AHMsignInOrRegisterText;
-	
-	@FindBy(name="email")
+
+	@FindBy(name = "email")
 	public WebElement usernameField;
-	
-	@FindBy(xpath="//button[@data-action='submit']")
+
+	@FindBy(xpath = "//button[@data-action='submit']")
 	public WebElement submitButton;
-	
-	@FindBy(xpath="//div[@class='txtC h3 typeEmphasize']")
+
+	@FindBy(xpath = "//div[@class='txtC h3 typeEmphasize']")
 	public WebElement enterPasswordText;
-	
-	@FindBy(name="password")
+
+	@FindBy(name = "password")
 	public WebElement passwordField;
-	
-	@FindBy(xpath="//span[@class='typeTruncate menu-personalized__userEmail___RajK']")
+
+	@FindBy(xpath = "//span[@class='typeTruncate menu-personalized__userEmail___RajK']")
 	public WebElement profileUserName;
-	
-	@FindBy(xpath="//*[@class='typeWarning typeCaps']/..")
-	public List <WebElement> soldTexts;
-	
-	//==========================================================
-	
-	@FindBy(xpath="//a[@data-reactid='83']") 
+
+	@FindBy(xpath = "//*[@class='typeWarning typeCaps']/..")
+	public List<WebElement> soldTexts;
+
+	// ==========================================================
+
+	@FindBy(xpath = "//a[@data-reactid='83']")
 	public WebElement menuBuyLink;
-	
-	@FindBy(xpath="//section[@data-reactid='81']//a")
+
+	@FindBy(xpath = "//section[@data-reactid='81']//a")
 	public List<WebElement> menuBuyList;
-	
-	@FindBy(xpath="//section[@data-reactid='81']//a[text()='Open Houses']")
+
+	@FindBy(xpath = "//section[@data-reactid='81']//a[text()='Open Houses']")
 	public WebElement menuOpenHousesLink;
 
-	@FindBy(xpath="//a[@data-reactid='99']")
+	@FindBy(xpath = "//a[@data-reactid='99']")
 	public WebElement menuNewHomesLink;
-	
-	@FindBy(id="priceToggle")
+
+	@FindBy(id = "priceToggle")
 	public WebElement buttonAnyPrice;
-	
-	@FindBy(id="minPrice")
+
+	@FindBy(id = "minPrice")
 	public WebElement displayNoMin;
-	
-	@FindBy(id="maxPrice")
+
+	@FindBy(id = "maxPrice")
 	public WebElement displayNoMax;
-	
-	@FindBy(xpath="//a[@data-reactid='203']")
-    public WebElement menuLocalScoopLink;
-	
-	@FindBy(xpath="//a[@data-reactid='224']")
+
+	@FindBy(xpath = "//a[@data-reactid='203']")
+	public WebElement menuLocalScoopLink;
+
+	@FindBy(xpath = "//a[@data-reactid='224']")
 	public WebElement menuCrime;
 
-	 @FindBy(id="searchBox")
+	@FindBy(id = "searchBox")
 	public WebElement searchBox;
-	 
-	 //=====================================
-	 @FindBy(xpath = "//li/button[contains(text(),'Sign In')]")
-		public WebElement signInButtonIL;
-		
-		@FindBy(xpath = "//form[@name='email_login_form']/div/div[1]")
-		public WebElement popUpTitleIL;
 
-		@FindBy(xpath = "//div[@class='fieldItem text pbm']/input ")
-		public WebElement enterEmailAddressFieldIL;
+	// =====================================
+	@FindBy(xpath = "//li/button[contains(text(),'Sign In')]")
+	public WebElement signInButtonIL;
 
-		@FindBy(xpath = "//button[contains(text(),'Submit')]")
-		public WebElement submitButtonIL;
+	@FindBy(xpath = "//form[@name='email_login_form']/div/div[1]")
+	public WebElement popUpTitleIL;
 
-		@FindBy(name = "password")
-		public WebElement enterPasswordFieldIL;
+	@FindBy(xpath = "//div[@class='fieldItem text pbm']/input ")
+	public WebElement enterEmailAddressFieldIL;
 
-		@FindBy(xpath = "//div[@class='field']/button")
-		public WebElement signInPasswordButtonIL;
+	@FindBy(xpath = "//button[contains(text(),'Submit')]")
+	public WebElement submitButtonIL;
 
-		@FindBy(xpath = "//a//span[contains(text(),'Irinatestapp')]")
-		public WebElement accountLinkIL;
+	@FindBy(name = "password")
+	public WebElement enterPasswordFieldIL;
 
-		@FindBy(id = "searchBox")
-		public WebElement searchFieldIL;
+	@FindBy(xpath = "//div[@class='field']/button")
+	public WebElement signInPasswordButtonIL;
 
-		@FindBy(xpath = "//i[@class='css-13qxxkb iconSearch']")
-		public WebElement searchButtonIL;
+	@FindBy(xpath = "//a//span[contains(text(),'Irinatestapp')]")
+	public WebElement accountLinkIL;
 
-		@FindBy(xpath = "//a[@href='/logout/']")
-		public WebElement logOutOfAccountIL;
-		
-		@FindBy(xpath="//*[@id=\"navbarContainer\"]//section[1]/ul/li[1]/ul/li[3]/a")
-		public WebElement ILYbuyNewHomesLink;
-		
-		@FindBy(id="priceToggle")
-		public WebElement ILYpriceToggle;
-		
-		@FindBy(id="minPrice")
-		public WebElement ILYminPriceLink;
+	@FindBy(id = "searchBox")
+	public WebElement searchFieldIL;
 
-		
-		@FindBy(id="maxPrice")
-		public WebElement ILYmaxPriceLink;
-		
-		// ====================================== 
-		public boolean signInIsDisplayed() {
-			boolean signin;
+	@FindBy(xpath = "//i[@class='css-13qxxkb iconSearch']")
+	public WebElement searchButtonIL;
 
-			try {
-				signin = signInButtonIL.isDisplayed();
-			} catch (NoSuchElementException e) {
-				signin = false;
-			}
-			return signin;
+	@FindBy(xpath = "//a[@href='/logout/']")
+	public WebElement logOutOfAccountIL;
+
+	@FindBy(xpath = "//*[@id=\"navbarContainer\"]//section[1]/ul/li[1]/ul/li[3]/a")
+	public WebElement ILYbuyNewHomesLink;
+
+	@FindBy(id = "priceToggle")
+	public WebElement ILYpriceToggle;
+
+	@FindBy(id = "minPrice")
+	public WebElement ILYminPriceLink;
+
+	@FindBy(id = "maxPrice")
+	public WebElement ILYmaxPriceLink;
+
+	// ======================================
+	public boolean signInIsDisplayed() {
+		boolean signin;
+
+		try {
+			signin = signInButtonIL.isDisplayed();
+		} catch (NoSuchElementException e) {
+			signin = false;
 		}
+		return signin;
+	}
 
+	@FindBy(linkText = "Buy")
+	public WebElement linkBuyIL;
 
+	@FindBy(linkText = "New Homes")
+	public WebElement linkNewHomeIL;
+
+	@FindBy(xpath = "//div[@class='horizontalContainer']//button/i[@class='iconSearch']")
+	public WebElement searchButtonBuyNewHomeIL;
+	// -------------------------------
+	@FindBy(linkText = "Homes for Sale")
+	public WebElement linkHomesForSaleIL;
+
+	@FindBy(linkText = "Open Houses")
+	public WebElement linkOpenHousesIL;
 
 }
