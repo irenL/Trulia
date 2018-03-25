@@ -36,6 +36,18 @@ public class SearchMenuPage {
 
 	@FindBy(id = "maxPrice")
 	public WebElement maxPriceIL;
+	
+	@FindBy(xpath = "//select[@id='minPrice']/option[contains(text(),'$200k')]")
+	public WebElement twoHundredIL;
+	
+	@FindBy(xpath = "//select[@id='minPrice']/option[contains(text(),'$200k')]")
+	public WebElement eightHundredIL;
+	
+//	@FindBy(xpath = "//select[@id='minPrice']/option[contains(text(),'$200k')]")
+//	public WebElement twoHundredIL;
+//	
+//	@FindBy(xpath = "//select[@id='minPrice']/option[contains(text(),'$200k')]")
+//	public WebElement twoHundredIL;
 
 	public boolean isNoMin() {
 		return anyPriceNoMinTextIL.getText().equals("No Min");

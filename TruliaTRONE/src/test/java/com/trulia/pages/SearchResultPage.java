@@ -177,7 +177,8 @@ public class SearchResultPage {
 
 	public boolean homePricesIsAtGivenRange(List<WebElement> elements, int rangeMin, int rangeMax) {
 		for (WebElement eachElement : elements) {
-			String str = eachElement.getText().replace("$", "").replace(",", "");
+			String str = eachElement.getText().replace("$", "");
+			str = str.replace(",", "");
 			int inNumber = Integer.parseInt(str);
 			if (rangeMin <= inNumber && inNumber <= rangeMax) {
 			} else {
@@ -191,5 +192,8 @@ public class SearchResultPage {
 		return filtersWindowIL.getText()
 				.equals("Adjust filters to find more homes:\n" + "Price $10,000 Open Houses\n" + "Remove All Filters");
 	}
+	
+	
+	
 	
 }
