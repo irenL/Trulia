@@ -168,7 +168,8 @@ public class TestIlyas extends TestBase{
 	
 	String firstValue=searchResultPage.ILYfirstResultPriceValue.getText();
 	String lastValue=searchResultPage.ILYlastResultPriceValue.getText();
-	
+	System.out.println(firstValue);
+	System.out.println(lastValue);
 	assertTrue(Integer.parseInt(firstValue.substring(1).replace(",",""))>50000);
 	assertTrue(Integer.parseInt(lastValue.substring(1).replace(",",""))<250000);
 }
