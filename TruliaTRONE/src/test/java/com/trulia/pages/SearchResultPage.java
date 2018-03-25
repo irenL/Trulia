@@ -121,7 +121,7 @@ public class SearchResultPage {
 	
 	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[2]/div[1]")
 	public WebElement ILYlandButton;
-	s
+	
 	@FindBy(xpath="//*[@id=\"homeTypesDropdown\"]//div[4]//label")
 	public WebElement ILYmultiFamilyButton;
 	
