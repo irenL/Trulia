@@ -41,6 +41,7 @@ public class SearchPageBaltimore {
 
 	@FindBy(xpath = "//span[@id='filterToggles']/div/span/button")
 	public WebElement saveSearchButtonIL;
+	
 
 	public boolean updatedTitle() {
 		return driver.getTitle().equals("Baltimore, MD 2 Bed Single Family Homes For Sale | Trulia");

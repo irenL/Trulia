@@ -6,4 +6,5 @@
 			<class name="com.trulia.tests.Tests"></class>
 		</classes>
 	</test>
+	
 </suite>

@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Trulia Automation Tests" verbose="2">
+	<test name="Trulia tests">
+
+		<classes>
+			<class name="com.trulia.tests.Tests">
+				<methods>
+					<include name="TC001"  />
+					<include name="TC003"  />
+					<include name="TC008"  />
+					<include name="TC011"  />
+					<include name="TC014"  />
+					<include name="TC017"  />
+				</methods>
+			</class>
+		</classes>
+
+	</test>
+
+</suite>

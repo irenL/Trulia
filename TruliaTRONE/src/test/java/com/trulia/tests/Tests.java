@@ -25,7 +25,7 @@ public class Tests extends TestBase {
 	SearchResultPage searchResultPage = new SearchResultPage();
 	SearchMenuPage searchMenuPage = new SearchMenuPage();
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void TC001() {
 
 		assertTrue(homePage.isAtTitle(),
@@ -58,22 +58,7 @@ public class Tests extends TestBase {
 		max1.selectByValue("10000");
 		BrowserUtils.waitFor(2);
 		assertTrue(searchResultPage.adjustFiltersIsDisplayed());
-		BrowserUtils.waitFor(2);
-		// Choose 200k for Min and 800k for Max
-		searchMenuPage.minPriceIL.click();
-		BrowserUtils.waitFor(1);
-		searchMenuPage.twoHundredIL.click();
-		// Select min2 = new Select(searchMenuPage.minPriceIL);
-		// BrowserUtils.waitFor(1);
-		// min2.selectByValue("200000");
-		BrowserUtils.waitFor(2);
-		searchMenuPage.maxPriceIL.click();
-		BrowserUtils.waitFor(1);
-		searchMenuPage.eightHundredIL.click();
-		// Select max2 = new Select(searchMenuPage.maxPriceIL);
-		// BrowserUtils.waitFor(1);
-		// max2.selectByValue("800000");
-		// BrowserUtils.waitFor(2);
+		
 
 	}
 
@@ -402,32 +387,33 @@ public class Tests extends TestBase {
 		String expectedUrl = "https://www.trulia.com/";
 		boolean resultHPUrl = BrowserUtils.getCurrentUrl(expectedUrl, actualUrl);
 		assertTrue(resultHPUrl, "Expected url not equal ectual");
-		BrowserUtils.waitFor(1);
+		BrowserUtils.waitFor(2);
 		assertTrue(homePage.isAtTitle(), "Title is not equal expected");
-		// Hover over the "Buy" link in the top left corner for a drop-down menu to
-		// unfold
+		// Hover over the "Buy" link in the top left corner for a drop-down menu to unfold
 		// Click on "Homes for Sale"
 		Actions action = new Actions(driver);
 		action.moveToElement(homePage.linkBuyIL).moveToElement(homePage.linkHomesForSaleIL).click().perform();
 		BrowserUtils.waitFor(2);
 		// Click on Any Price for the drop-down menu with price range choices to appear
 		searchMenuPage.searchFilterButtonAnyPriceIL.click();
-		BrowserUtils.waitFor(1);
+		BrowserUtils.waitFor(2);
 		assertTrue(driver.getTitle().contains("Homes For Sale"), "Title does not contain 'Homes For Sale'");
-		BrowserUtils.waitFor(1);
+		BrowserUtils.waitFor(2);
 		assertTrue(searchMenuPage.isNoMin(), "Actual not equal 'No Min' ");
+		BrowserUtils.waitFor(1);
 		assertTrue(searchMenuPage.isNoMax(), "Actual not equal 'No Max' ");
 		// Choose 10k for Min and 20k for Max
 		Select selectPrice = new Select(searchMenuPage.minPriceIL);
 		selectPrice.selectByValue("10000");
+		BrowserUtils.waitFor(1);
 		selectPrice = new Select(searchMenuPage.maxPriceIL);
 		selectPrice.selectByValue("20000");
-		BrowserUtils.waitFor(1);
+		BrowserUtils.waitFor(3);
 		assertTrue(searchMenuPage.isInGivenPriceRange(), "Price range not equal given range");
-		BrowserUtils.waitFor(1);
+		BrowserUtils.waitFor(3);
 		assertTrue(searchResultPage.homePricesIsAtGivenRange(searchResultPage.listOfHomesPricesIL, 10000, 20000),
 				"Any Price Filter does not sort by given range");
-
+		
 	}
 
 	@Test(enabled = true)
@@ -444,7 +430,8 @@ public class Tests extends TestBase {
 		assertTrue(searchMenuPage.keywordsDropdownWindowIL.isDisplayed(), "Keyword drop down window is not displayed");
 		BrowserUtils.waitFor(1);
 		// In the text box type in "parking garage" and click Enter
-		searchMenuPage.keywordInputFieldIL.sendKeys("parking garage" + Keys.ENTER);
+		BrowserUtils.waitFor(1);
+	    	searchMenuPage.keywordInputFieldIL.sendKeys("parking garage" + Keys.ENTER);
 		BrowserUtils.waitFor(1);
 		assertTrue(searchResultPage.numberResultIsDisplayed(), "Your search does not match any homes");
 		BrowserUtils.waitFor(1);

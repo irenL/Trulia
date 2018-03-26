@@ -20,7 +20,7 @@ public class SearchMenuPage {
 	}
 
 	@FindBy(id = "locationInputs")
-	public WebElement menuSearchFieldIL; // locator from HoMePage
+	public WebElement menuSearchFieldIL; 
 
 	@FindBy(id = "priceToggle")
 	public WebElement searchFilterButtonAnyPriceIL;
@@ -43,25 +43,7 @@ public class SearchMenuPage {
 	@FindBy(xpath = "//select[@id='minPrice']/option[contains(text(),'$200k')]")
 	public WebElement eightHundredIL;
 	
-//	@FindBy(xpath = "//select[@id='minPrice']/option[contains(text(),'$200k')]")
-//	public WebElement twoHundredIL;
-//	
-//	@FindBy(xpath = "//select[@id='minPrice']/option[contains(text(),'$200k')]")
-//	public WebElement twoHundredIL;
-
-	public boolean isNoMin() {
-		return anyPriceNoMinTextIL.getText().equals("No Min");
-	}
-
-	public boolean isNoMax() {
-		return anyPriceNoMaxTextIL.getText().equals("No Max");
-	}
-
-	public boolean isInGivenPriceRange() {
-		return searchFilterButtonAnyPriceIL.getText().equals("$10k - $20k");
-	}
-	// ---------------------
-
+	
 	@FindBy(xpath = "//div[@class='field mvn']")
 	public WebElement keywordsDropdownWindowIL;
 
@@ -83,6 +65,21 @@ public class SearchMenuPage {
 	@FindBy(xpath = "//div[@id='homeTypesDropdown']//label")
 	public List<WebElement> elementsOfHomeTypesDropdownListIL;
 
+	@FindBy(id = "moreToggle")
+	public WebElement moreButtonIL;
+	
+	public boolean isNoMin() {
+		return anyPriceNoMinTextIL.getText().equals("No Min");
+	}
+
+	public boolean isNoMax() {
+		return anyPriceNoMaxTextIL.getText().equals("No Max");
+	}
+
+	public boolean isInGivenPriceRange() {
+		return searchFilterButtonAnyPriceIL.getText().equals("$10k - $20k");
+	}
+	
 	public boolean ListOfElementsIsDisplayed() {
 		String str = null;
 		for (WebElement element : elementsOfHomeTypesDropdownListIL) {

@@ -22,10 +22,11 @@ public class TestBase {
 	public void beforeMethod() {
 		driver.get(ConfigurationReader.getProperty("url"));
 	}
+	
 
 	@AfterClass
 	public void tearDown() {
-		//Driver.closeDriver();
+	//Driver.closeDriver();
 	}
 
 }

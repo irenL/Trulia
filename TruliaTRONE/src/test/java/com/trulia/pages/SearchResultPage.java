@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.trulia.utilities.BrowserUtils;
 import com.trulia.utilities.Driver;
 
 public class SearchResultPage {
@@ -141,7 +142,6 @@ public class SearchResultPage {
 	@FindBy(xpath="//*[@id=\"resultsColumn\"]//li[32]//div[2]//span")
 	public WebElement ILYlastResultPriceValue;
 	
-//===========================================================
 	
 	@FindBy(xpath = "//h2[@class='h6 typeLowlight pbs']")
 	public WebElement resultTotalNumberHomesFoundIL;
@@ -176,10 +176,14 @@ public class SearchResultPage {
 	}
 
 	public boolean homePricesIsAtGivenRange(List<WebElement> elements, int rangeMin, int rangeMax) {
+		
 		for (WebElement eachElement : elements) {
+			System.out.println(eachElement.getText());
 			String str = eachElement.getText().replace("$", "");
 			str = str.replace(",", "");
+			BrowserUtils.waitFor(2);
 			int inNumber = Integer.parseInt(str);
+			
 			if (rangeMin <= inNumber && inNumber <= rangeMax) {
 			} else {
 				return false;
@@ -187,6 +191,8 @@ public class SearchResultPage {
 		}
 		return true;
 	}
+	
+	
 
 	public boolean adjustFiltersIsDisplayed() {
 		return filtersWindowIL.getText()
