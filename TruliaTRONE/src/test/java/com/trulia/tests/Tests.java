@@ -271,8 +271,7 @@ public class Tests extends TestBase {
 		BrowserUtils.waitFor(2);
 		assertTrue(homePage.searchFieldIL.getAttribute("value").equals("Pittsburg,PA"));
 		homePage.searchButtonIL.click();
-		BrowserUtils.waitFor(2);
-
+		BrowserUtils.waitFor(3);
 		// Hover over Buy link
 		Actions actions = new Actions(driver);
 		BrowserUtils.waitFor(2);

@@ -139,8 +139,9 @@ public class SearchResultPage {
 	@FindBy(xpath="//*[@id=\"resultsColumn\"]//li[1]//div[2]//span")
 	public WebElement ILYfirstResultPriceValue;
 	
-	@FindBy(xpath="//*[@id=\"resultsColumn\"]//li[32]//div[2]//span")
+	@FindBy(xpath="//*[@id=\"resultsColumn\"]//li[3]//div[2]//span")
 	public WebElement ILYlastResultPriceValue;
+
 	
 	
 	@FindBy(xpath = "//h2[@class='h6 typeLowlight pbs']")
