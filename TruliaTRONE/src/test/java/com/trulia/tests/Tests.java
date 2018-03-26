@@ -210,21 +210,16 @@ public class Tests extends TestBase {
 		for (WebElement b : searchResultPage.ILYallHomeTypesMenu) {
 			actual2 += b.getText() + " ";
 		}
-
 		assertTrue(actual2.trim().contains(expected2));
-
 		// Click on the land option, TownHome option and Condo at the same time.
 		searchResultPage.ILYcondoButton.click();
 		BrowserUtils.waitFor(1);
 		searchResultPage.ILYlandButton.click();
 		BrowserUtils.waitFor(1);
 		searchResultPage.ILYtownHomeButton.click();
-
 		int numHOmes = Integer.parseInt(searchResultPage.ILYresultsColumn.getText().substring(0, 3));
 		assertTrue(numHOmes > 1);
-
 	}
-
 	@Test(enabled = true)
 	public void TC008() {
 		// navigate to URL <https://www.trulia.com/>
@@ -235,7 +230,6 @@ public class Tests extends TestBase {
 		assertTrue(homePage.isAtTitle());
 		// Hover over Buy Link
 		Actions actions = new Actions(driver);
-
 		BrowserUtils.waitFor(2);
 		actions.moveToElement(searchResultPage.ILYbuyLink).perform();
 		BrowserUtils.waitFor(2);
@@ -257,7 +251,6 @@ public class Tests extends TestBase {
 		searchResultPage.AHMsearchBtn.click();
 		assertTrue(driver.getTitle().contains("Windermere, FL New Homes For Sale"));
 	}
-
 	@Test(enabled = true)
 	public void TC009() {
 		// navigate to URL <https://www.trulia.com/>
@@ -282,7 +275,6 @@ public class Tests extends TestBase {
 		for (WebElement g : homePage.AHMmenuBuyList) {
 			actual4 += g.getText() + " ";
 		}
-
 		assertTrue(actual4.trim().contains(expected4));
 		// Click on Open Houses
 		homePage.AHMmenuOpenHousesLink.click();
@@ -307,14 +299,11 @@ public class Tests extends TestBase {
 		BrowserUtils.waitFor(2);
 		list2.selectByVisibleText("$250k");
 		BrowserUtils.waitFor(5);
-
 		String firstValue = searchResultPage.ILYfirstResultPriceValue.getText();
 		String lastValue = searchResultPage.ILYlastResultPriceValue.getText();
-
 		assertTrue(Integer.parseInt(firstValue.substring(1).replace(",", "")) > 50000);
 		assertTrue(Integer.parseInt(lastValue.substring(1).replace(",", "")) < 250000);
 	}
-
 	@Test(enabled = true)
 	public void TC010() {
 		// naigate to URL <https://www.trulia.com/>
@@ -323,7 +312,6 @@ public class Tests extends TestBase {
 		assertTrue(homePage.isAtTitle());
 		// Hover over Buy link
 		Actions action = new Actions(driver);
-
 		BrowserUtils.waitFor(2);
 		action.moveToElement(searchResultPage.ILYbuyLink).perform();
 		BrowserUtils.waitFor(2);
@@ -353,9 +341,7 @@ public class Tests extends TestBase {
 		// one
 		BrowserUtils.waitFor(3);
 		assertTrue(driver.getCurrentUrl().contains("MULTI-FAMILY"));
-
 	}
-
 	@Test(enabled = true)
 	public void TC011() {
 		// naigate to URL <https://www.trulia.com/>

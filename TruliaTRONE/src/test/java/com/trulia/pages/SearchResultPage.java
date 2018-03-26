@@ -136,14 +136,12 @@ public class SearchResultPage {
 	@FindBy(xpath="//*[@id=\"srpHeaderLeftColumn\"]//h2")
 	public WebElement ILYresultsColumn;
 	
-	@FindBy(xpath="//*[@id=\"resultsColumn\"]//li[1]//div[2]//span")
+	@FindBy(xpath="//*[@id=\"resultsColumn\"]/div/div[2]/div[1]/div[1]/ul/li[1]/div/div/div[2]/a[1]/div[2]/div/div[1]/span")
 	public WebElement ILYfirstResultPriceValue;
 	
-	@FindBy(xpath="//*[@id=\"resultsColumn\"]//li[3]//div[2]//span")
+	@FindBy(xpath="//*[@id=\"resultsColumn\"]/div/div[2]/div[1]/div[1]/ul/li[3]/div/div/div[2]/a[1]/div[2]/div/div[1]/span")
 	public WebElement ILYlastResultPriceValue;
 
-	
-	
 	@FindBy(xpath = "//h2[@class='h6 typeLowlight pbs']")
 	public WebElement resultTotalNumberHomesFoundIL;
 
